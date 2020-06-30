@@ -1,4 +1,5 @@
-import User from '../Models/User';
+import User, { findOne } from '../Models/User';
+import { request, response } from 'express';
 
 exports.createUser = async (request, response) => {
     const {cpf, email} = request.body;
@@ -15,3 +16,8 @@ exports.createUser = async (request, response) => {
     }
     return response.json("Usuário já cadastrado"); 
 }
+
+exports.transferir = async (request, response) => {
+    
+} 
+

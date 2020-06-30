@@ -1,2 +1,18 @@
 backend/node_modules
 backend/.env
+backend/.vscode
+
+
+mobile/node_modules/**/*
+mobile/.expo/*
+mobile/npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+mobile/web-build/
+
+# macOS
+mobile/.DS_Store

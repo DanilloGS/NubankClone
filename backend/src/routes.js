@@ -1,9 +1,13 @@
 import express from 'express';
-import User from './Models/User';
 import UserController from './Controllers/UserController';
 
 const routes = express.Router(); 
 
-routes.post('/users', UserController.createUser);
+routes.post('/users/signup', UserController.createUser);
+routes.get('/users/login', );
+
+// routes.get('/users/:id', UserController.getTotalMoney);
+
+routes.put('/users')
 
 export default routes;
