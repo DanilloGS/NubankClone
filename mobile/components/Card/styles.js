@@ -5,19 +5,16 @@ const styles = StyleSheet.create({
         flex: 1,
         maxHeight: 400,
         justifyContent: "center",
-        zIndex: 5
+        alignItems: 'center',
+        zIndex: 5,
+        top: '30%'
     },
     Card: {
+        minHeight: 400,
         flex: 1,
         backgroundColor: '#FFF',
         borderRadius: 4,
         margin: '5%',
-        height: 100,
-        position:'absolute',
-        left: 0,
-        top: 0,
-        right: 0,
-        top: 380
     },
     CardHeader: {
         flexDirection: 'row',

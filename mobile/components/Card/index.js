@@ -4,8 +4,9 @@ import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 
 import styles from './styles';
 
-export default function Card() {
+export default function Card(props) {
   return (
+    <>
       <View style={styles.Container}>
           <View style={styles.Card}>
               <View style={styles.CardHeader}>
@@ -22,5 +23,7 @@ export default function Card() {
               </View>
           </View>
       </View>
+      {props.children}
+    </>
   );
 }

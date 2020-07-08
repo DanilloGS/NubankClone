@@ -4,11 +4,11 @@ const styles = StyleSheet.create({
     Container: {
         height: 100,
         marginTop: 20,
-        bottom: -50
     },
     TabContainer: {
         paddingLeft: 10,
-        paddingRight: 20
+        paddingRight: 20,
+        paddingBottom: 10
     },
     TabItem: {
         width: 100,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         marginLeft: 10,
         padding: 10,
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     TabText: {
         fontSize: 13,

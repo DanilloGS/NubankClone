@@ -13,8 +13,9 @@ export default function Main () {
             <StatusBar style="inverted"/>
             <View style={styles.Container}>
                 <Header/>
-                <Menu/>
-                <Card/>
+                <Card>
+                    <Menu/>
+                </Card>
                 <Tabs/>
             </View>
         </>
