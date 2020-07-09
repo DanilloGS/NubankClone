@@ -4,12 +4,10 @@ const styles = StyleSheet.create({
     Container: {
         flex: 1,
         maxHeight: 400,
-        justifyContent: "center",
         zIndex: 5,
-        alignSelf: 'stretch',
     },
     Card: {
-        minHeight: 350,
+        minHeight: '55%',
         flex: 1,
         backgroundColor: '#FFF',
         borderRadius: 4,

@@ -3,26 +3,27 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     Container:{
         alignItems: 'center',
-        padding: 30
+        paddingLeft: 30,
+        paddingRight: 30
     },
     QrCode:{
-        height:90,
-        width: 90,
+        padding: 10,
         backgroundColor: '#FFF',
         alignItems: 'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        overflow: "hidden"
     },
     Nav:{
         marginTop: 30,
         alignSelf: 'stretch',
-        borderTopWidth: StyleSheet.hairlineWidth,
+        borderTopWidth: 0.5,
         borderColor: 'rgba(255,255,255,0.8)',
     },
     NavItem:{
         flexDirection: 'row',
         alignContent:'center',
         paddingTop: 10,
-        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderBottomWidth: 0.5,
         borderColor: 'rgba(255,255,255,0.8)',
     },
     NavText: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
         marginBottom: 12
     },
     Button: {
-        borderWidth: StyleSheet.hairlineWidth,
+        borderWidth: 0.5,
         borderColor: 'rgba(255,255,255,0.8)',
         borderRadius: 4,
         justifyContent: 'center',

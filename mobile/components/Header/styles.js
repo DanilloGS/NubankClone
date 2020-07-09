@@ -4,13 +4,11 @@ import Constants from 'expo-constants'
 const styles = StyleSheet.create({
     Container: {
         alignItems: 'center',
-        paddingTop: Constants.statusBarHeight + 20,
-        paddingBottom: 30
+        marginTop: '15%',
     },
     Top: {
         flexDirection: 'row',
         alignItems:"center",
-        marginBottom: 10
     },
     Title:{
         fontSize: 18,

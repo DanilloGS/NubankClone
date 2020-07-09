@@ -46,9 +46,8 @@ export default function Card(props) {
               </View>
           </Animated.View>
         </PanGestureHandler>
-        {/* Concertar essa props */}
-        {props.children}
       </View>
+      {props.children}
     </>
   );
 }
