@@ -1,16 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Animated } from 'react-native';
 
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
         maxHeight: 400,
         justifyContent: "center",
-        alignItems: 'center',
         zIndex: 5,
-        top: '30%'
+        alignSelf: 'stretch',
     },
     Card: {
-        minHeight: 400,
+        minHeight: 350,
         flex: 1,
         backgroundColor: '#FFF',
         borderRadius: 4,

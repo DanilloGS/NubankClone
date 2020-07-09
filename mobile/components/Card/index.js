@@ -1,14 +1,37 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons'; 
+import { PanGestureHandler, State } from 'react-native-gesture-handler'
 
 import styles from './styles';
 
 export default function Card(props) {
+  const translateY = new Animated.Value(0);
+  const animatedEvent = new Animated.event(
+    [
+      {
+        nativeEvent: {
+          translationY: translateY,
+        }
+      }
+    ],
+    {
+      useNativeDriver: true
+    }
+  );
+
+  const onHandlerStateChange = event => {
+
+  }
+
   return (
     <>
       <View style={styles.Container}>
-          <View style={styles.Card}>
+        <PanGestureHandler
+          onGestureEvent={animatedEvent}
+          onHandlerStateChange={onHandlerStateChange}
+        >
+          <Animated.View style={[styles.Card, {transform:[{translateY: translateY}]} ]}>
               <View style={styles.CardHeader}>
                     <MaterialIcons name="attach-money" size={24} color="black" />
                     <FontAwesome5 name="eye-slash" size={24} color="black" />
@@ -21,9 +44,11 @@ export default function Card(props) {
                 <Text style={styles.Anotation}>Lorem ipsum amet nostra, vehicula. </Text>
                 <Text style={styles.Anotation}>Lorem ipsum tempus bibendum ultrices, phasellus velit. </Text>
               </View>
-          </View>
+          </Animated.View>
+        </PanGestureHandler>
+        {/* Concertar essa props */}
+        {props.children}
       </View>
-      {props.children}
     </>
   );
 }

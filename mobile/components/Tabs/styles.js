@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     TabContainer: {
         paddingLeft: 10,
         paddingRight: 20,
-        paddingBottom: 10
     },
     TabItem: {
         width: 100,

@@ -9,6 +9,7 @@ export default function Menu() {
   return (
       <ScrollView
         contentContainerStyle={styles.Container}
+        scrollEnabled={false}
       >
         <View style={styles.QrCode}>
           <QRCode 
