@@ -6,16 +6,14 @@ import { PanGestureHandler, State } from 'react-native-gesture-handler'
 import styles from './styles';
 
 export default function Card(props) {
-  const onHandlerStateChange = event => {
-
-  }
+  
 
   return (
-    <>
+    <View style={{alignContent: 'center'}}>
       <View style={styles.Container}>
         <PanGestureHandler
           onGestureEvent={props.animatedEvent}
-          onHandlerStateChange={onHandlerStateChange}
+          onHandlerStateChange={props.onHandlerStateChange}
         >
           <Animated.View style={[styles.Card, 
           {
@@ -37,7 +35,6 @@ export default function Card(props) {
               <View style={styles.CardContent}>
                     <Text style={styles.Title}>Saldo Disponível</Text>
                     <Text style={styles.Description}>12.000.000,00</Text>
-                    <Text>{JSON.stringify(props.translateY)}</Text>
               </View>
               <View style={styles.CardFooter}>
                 <Text style={styles.Anotation}>Lorem ipsum amet nostra, vehicula. </Text>
@@ -47,6 +44,6 @@ export default function Card(props) {
         </PanGestureHandler>
       </View>
       {props.children}
-    </>
+    </View>
   );
 }

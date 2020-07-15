@@ -12,7 +12,7 @@ export default function Menu(props) {
       >
         <Animated.View style={{
             opacity: props.translateY.interpolate({
-              inputRange: [0, 150],
+              inputRange: [0, 300],
               outputRange: [0, 1]
             }),
             alignItems: 'center',

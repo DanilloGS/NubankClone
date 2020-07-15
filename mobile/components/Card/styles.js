@@ -4,15 +4,15 @@ const styles = StyleSheet.create({
     Container: {
         flex: 1,
         maxHeight: 400,
-        zIndex: 5,
+        zIndex: 10,
+        alignItems: 'center'
     },
     Card: {
-        minHeight: '55%',
+        minHeight: '100%',
         flex: 1,
         backgroundColor: '#FFF',
         borderRadius: 4,
-        margin: '5%',
-        marginTop:'10%'
+        marginHorizontal: '5%',
     },
     CardHeader: {
         flexDirection: 'row',
