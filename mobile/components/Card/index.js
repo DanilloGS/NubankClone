@@ -6,20 +6,6 @@ import { PanGestureHandler, State } from 'react-native-gesture-handler'
 import styles from './styles';
 
 export default function Card(props) {
-  const translateY = new Animated.Value(0);
-  const animatedEvent = new Animated.event(
-    [
-      {
-        nativeEvent: {
-          translationY: translateY,
-        }
-      }
-    ],
-    {
-      useNativeDriver: true
-    }
-  );
-
   const onHandlerStateChange = event => {
 
   }
@@ -28,10 +14,22 @@ export default function Card(props) {
     <>
       <View style={styles.Container}>
         <PanGestureHandler
-          onGestureEvent={animatedEvent}
+          onGestureEvent={props.animatedEvent}
           onHandlerStateChange={onHandlerStateChange}
         >
-          <Animated.View style={[styles.Card, {transform:[{translateY: translateY}]} ]}>
+          <Animated.View style={[styles.Card, 
+          {
+            transform:
+            [
+              {
+                  translateY: props.translateY.interpolate({
+                    inputRange: [-350,0,380],
+                    outputRange: [-50, 0, 380],
+                    extrapolate: 'clamp'
+                  })
+              }
+            ]
+          } ]}>
               <View style={styles.CardHeader}>
                     <MaterialIcons name="attach-money" size={24} color="black" />
                     <FontAwesome5 name="eye-slash" size={24} color="black" />
@@ -39,6 +37,7 @@ export default function Card(props) {
               <View style={styles.CardContent}>
                     <Text style={styles.Title}>Saldo Disponível</Text>
                     <Text style={styles.Description}>12.000.000,00</Text>
+                    <Text>{JSON.stringify(props.translateY)}</Text>
               </View>
               <View style={styles.CardFooter}>
                 <Text style={styles.Anotation}>Lorem ipsum amet nostra, vehicula. </Text>

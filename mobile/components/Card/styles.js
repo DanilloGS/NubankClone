@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 4,
         margin: '5%',
+        marginTop:'10%'
     },
     CardHeader: {
         flexDirection: 'row',
