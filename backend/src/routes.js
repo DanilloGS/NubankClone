@@ -1,13 +1,12 @@
 import express from 'express';
-import UserController from './Controllers/UserController';
+import {getUser, createUser, makeWithdraw} from './Controllers/UserController';
 
 const routes = express.Router(); 
 
-routes.post('/users/signup', UserController.createUser);
-routes.get('/users/login', );
-
+routes.get('/users/:id', getUser);
+routes.post('/users/signup', createUser);
+routes.put('/user/withdrawal/:id', makeWithdraw);
 // routes.get('/users/:id', UserController.getTotalMoney);
 
-routes.put('/users')
 
 export default routes;
