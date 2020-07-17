@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Animated } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import Header from '../../components/Header';
 import Tabs from '../../components/Tabs';
 import Card from '../../components/Card';
@@ -24,34 +23,33 @@ export default function Main () {
         }
     );
     const onHandlerStateChange = event => {
-      if(event.nativeEvent.oldState === State.ACTIVE){
+    if(event.nativeEvent.oldState === State.ACTIVE){
         const { translationY } = event.nativeEvent;
         let opened = false;
         offset += translationY;
 
         if(translationY >= 100){
-          opened = true;
+        opened = true;
 
         } else {
-          translateY.setValue(offset);
-          translateY.setOffset(0);
-          offset = 0;
+        translateY.setValue(offset);
+        translateY.setOffset(0);
+        offset = 0;
         }
         Animated.timing(translateY, {
-          toValue: opened ? 380 : 0,
-          duration: 200,
-          useNativeDriver: true,
+        toValue: opened ? 380 : 0,
+        duration: 200,
+        useNativeDriver: true,
         }).start(() => {
-          offset = opened ? 380 : 0;
-          translateY.setOffset(offset);
-          translateY.setValue(0);
+        offset = opened ? 380 : 0;
+        translateY.setOffset(offset);
+        translateY.setValue(0);
         });
-      }
+    }
     }
 
     return(
         <>
-            <StatusBar style="inverted"/>
             <View style={styles.Container}>
                 <Header/>
                 <Card 
