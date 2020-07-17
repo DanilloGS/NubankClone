@@ -8,7 +8,7 @@ const createUser = async (request, response) => {
         if(!newUser){
             newUser = await User.create(request.body);
             return response.status(201).json({
-                status:'success',
+                status:'Success',
                 data: {newUser}
             });
         }
@@ -23,27 +23,37 @@ const getUser = async (request, response) => {
     const userFound = await User.findById(cpf);
     if(userFound)
         return response.status(201).json({
-            status:'success',
+            status:'Success',
             data: {userFound}
         });
     return response.json("Usuário não cadastrado");
 }
 
-const makeWithdraw = async (request, response) => {
-    const {withdrawalValue} = Number(request.body);
-    let currentUserInfo = await User.findById(request.params.id);
-    let totalMoney = currentUserInfo.conta.debito - withdrawalValue;
-    if(totalMoney < 0) {
+const transfer = async (request, response) => {
+    const currentUserId = request.params.id;
+    const valueTransfered = Number(request.query.valueTransfered);
+    const userRecivingMoneyId = request.query.userRecivingMoneyId;
+
+    const currentUser = await User.findById(currentUserId);
+    const debitAfterTransfer = currentUser.conta.debito - valueTransfered;
+    if(debitAfterTransfer < 0) {
         return response.json("Débito insuficiente");
     }
-    User.updateOne(request.params.id.json(), {conta:{debito: totalMoney}}, (error, raw) => {
-        if(error){
-            console.log(error);
-            // throw 'Error';
-        } else {
-            console.log(raw);
-        }
+
+    const userRecivingMoney = await User.findById(userRecivingMoneyId);
+    
+    if(userRecivingMoney) {
+        const valueBeingRecived = userRecivingMoney.conta.debito + valueTransfered
+        await User.findByIdAndUpdate(currentUserId, {conta:{debito: debitAfterTransfer}});
+        await User.findByIdAndUpdate(userRecivingMoneyId, {conta:{debito: valueBeingRecived}});
+        return response.status(201).json({
+            status:'Success'
+        });
+    }    
+    return response.json({
+        status: 'Error',
+        data: {userRecivingMoney}
     })
 }
 
-export { createUser, getUser, makeWithdraw };
+export { createUser, getUser, transfer };

@@ -1,11 +1,11 @@
 import express from 'express';
-import {getUser, createUser, makeWithdraw} from './Controllers/UserController';
+import {getUser, createUser, transfer} from './Controllers/UserController';
 
 const routes = express.Router(); 
 
+routes.post('/signup', createUser);
 routes.get('/users/:id', getUser);
-routes.post('/users/signup', createUser);
-routes.put('/user/withdrawal/:id', makeWithdraw);
+routes.put('/user/transfer/:id', transfer);
 // routes.get('/users/:id', UserController.getTotalMoney);
 
 
