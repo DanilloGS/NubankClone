@@ -5,11 +5,10 @@ const UserSchema = new Schema({
     "name": String,
     "_id": String,
     "email": String,
-    "conta": {
-        "numeroConta": Number,
-        "agencia": Number,
-        "debito": Number
-    }
+    "accountNumber": String,
+    "agency": String,
+    "debit": Number
+    
 });
 
 export default model('User', UserSchema);

@@ -10,12 +10,12 @@ export default function Login() {
     const [cpf, setCpf] = useState('');
 
     const login = async () => {
-        try {
-            const response = await api.get('/users/05338733129');
-            console.log(response.data);
-        } catch (e) {
-            console.log(e);
-        }
+        const user = await api.get(`/users/${cpf}`);
+        console.log(user.data);
+        // console.log(user);
+        // if(user.status){
+        //     console.log('Foi');
+        // }
     }
 
     return (
@@ -29,7 +29,7 @@ export default function Login() {
                 placeholder='CPF'
                 maxLength={11}
                 keyboardType='numeric'
-                onChange={textonInput => setCpf(textonInput)}
+                onChange={textonInput => setCpf(textonInput.nativeEvent.text)}
             />
             <Buttons title={'Login'} onPress={login}/>
             <Buttons title={'Cadastro'}/>
