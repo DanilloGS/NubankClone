@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import { View, TextInput, Image } from 'react-native';
 import Buttons from '../../components/UI/Buttons';
 import logo from '../../assets/Nubank_Logo.png';
-import api from '../../services/api';
-
+import { login } from '../../services/User';
 import styles from './styles';
 
 export default function Login() {
     const [cpf, setCpf] = useState('');
 
-    const login = async () => {
-        const user = await api.get(`/users/${cpf}`);
-        console.log(user.data);
-        // console.log(user);
-        // if(user.status){
-        //     console.log('Foi');
-        // }
+    const loginOnApp = async() => {
+        const user = await login(cpf);
+        if(user.status) {
+            console.log('Foi');
+        }
+        else
+        console.log("Não foi");
     }
 
     return (
@@ -31,7 +30,7 @@ export default function Login() {
                 keyboardType='numeric'
                 onChange={textonInput => setCpf(textonInput.nativeEvent.text)}
             />
-            <Buttons title={'Login'} onPress={login}/>
+            <Buttons title={'Login'} onPress={loginOnApp}/>
             <Buttons title={'Cadastro'}/>
         </View>
     );

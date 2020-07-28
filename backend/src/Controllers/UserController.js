@@ -28,6 +28,8 @@ const createUser = async (request, response) => {
 const getUser = async (request, response) => {
     try {
         const cpf = request.params.id;
+        console.log(cpf);
+        console.log("Valor: ", cpf);
         const userFound = await User.findById(cpf);
         if(userFound)
             return response.json({
